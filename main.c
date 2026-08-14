@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 #define POINTER_SIZE 5.0f
-#define NUMBER_OF_THINGS 200
+#define MAX_THINGS 200
 
 typedef struct State_Manager {
   // General:
@@ -32,7 +32,7 @@ typedef struct State_Manager {
     Vector2 mouse_arrow_tip;
     Vector2 mouse_arrow_left_base_tip;
     Vector2 mouse_arrow_right_base_tip;
-  } saved_things[NUMBER_OF_THINGS];
+  } saved_things[MAX_THINGS];
 
 } State_Manager;
 
@@ -77,7 +77,7 @@ void init_raylib(int window_width, int window_height, char *window_name, bool se
 
 void render_saved_things() {
   if (sm.visible_count_of_things > 0) {
-    for (int i = 0; i < NUMBER_OF_THINGS; i++) {
+    for (int i = 0; i < MAX_THINGS; i++) {
       if (sm.saved_things[i].should_render) {
         DrawLineEx(sm.saved_things[i].mouse_start_position, sm.saved_things[i].mouse_end_position, POINTER_SIZE, sm.saved_things[i].mouse_color);
         DrawTriangle(sm.saved_things[i].mouse_arrow_tip, sm.saved_things[i].mouse_arrow_left_base_tip, sm.saved_things[i].mouse_arrow_right_base_tip, sm.saved_things[i].mouse_color);
@@ -89,7 +89,7 @@ void render_saved_things() {
 void save_thing() {
   if (!sm.is_mouse_button_down) {
     if (!sm.is_reset_flag) {
-      if (sm.visible_count_of_things < NUMBER_OF_THINGS) {
+      if (sm.visible_count_of_things < MAX_THINGS) {
         // Save state:
         sm.saved_things[sm.visible_count_of_things].mouse_start_position       = sm.mouse_start_position;
         sm.saved_things[sm.visible_count_of_things].mouse_end_position         = sm.mouse_end_position;
