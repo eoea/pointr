@@ -43,7 +43,7 @@ Example:
 
 ![1](./doc/1.png)
 
-![2](/Users/eoea/Programming/Repos/forgejo.local/eoea/dev-tools/pointr/doc/3.png)
+![2](./doc/2.png)
 
 ![3](./doc/3.png)
 
