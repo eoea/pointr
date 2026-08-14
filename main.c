@@ -6,8 +6,6 @@
 #define POINTER_SIZE 5.0f
 #define NUMBER_OF_THINGS 200
 
-static Color POINTER_COLOR = RED;
-
 typedef struct State_Manager {
   // General:
   bool is_reset_flag;
@@ -45,7 +43,9 @@ typedef struct Pointer {
 } Pointer;
 
 // -----------------------------------
-// Globals:
+// Modifiable Global State:
+static Color POINTER_COLOR = RED;
+
 struct Pointer pointer = {
   .x      = 0,
   .y      = 0,
@@ -181,6 +181,7 @@ void do_one_frame() {
 
 void main_loop() {
   HideCursor();
+  SetWindowFocused();
   while (!WindowShouldClose()) {
     BeginDrawing();
     ClearBackground(BLANK);
