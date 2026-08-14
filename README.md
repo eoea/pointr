@@ -15,7 +15,8 @@ make prepare
 ```
 
 ```sh
-make build
+# for mac os bundle
+make bundle
 ```
 
 Binary is saved in build directory. Run:
